@@ -1,0 +1,358 @@
+MDScreenManager:
+
+    MDScreen:
+        name: "main"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            md_bg_color: 0.08, 0.09, 0.13, 1
+
+            MDTopAppBar:
+                title: "FastMusic"
+                elevation: 4
+                md_bg_color: 0.12, 0.14, 0.20, 1
+                specific_text_color: 0.95, 0.97, 1.0, 1
+                size_hint_y: None
+                height: dp(52)
+
+            MDBottomNavigation:
+                id: nav
+                md_bg_color: 0.08, 0.09, 0.13, 1
+                selected_color_background: 0.15, 0.18, 0.26, 1
+                panel_color: 0.10, 0.12, 0.17, 1
+                text_color_active: 0.35, 0.65, 1.0, 1
+
+                MDBottomNavigationItem:
+                    name: "charts"
+                    title: "Чарти"
+                    icon: "fire"
+
+                    FloatLayout:
+                        MDScrollView:
+                            MDList:
+                                id: charts_list
+                                padding: dp(8)
+                                spacing: dp(6)
+                        MDSpinner:
+                            id: charts_spin
+                            size_hint: None, None
+                            size: dp(42), dp(42)
+                            pos_hint: {"center_x": 0.5, "center_y": 0.45}
+                            active: False
+                            opacity: 0
+                        MDLabel:
+                            id: charts_load
+                            text: ""
+                            halign: "center"
+                            theme_text_color: "Custom"
+                            text_color: 0.45, 0.70, 1.0, 1
+                            font_size: "14sp"
+                            size_hint_y: None
+                            height: dp(24)
+                            pos_hint: {"center_x": 0.5, "center_y": 0.62}
+
+                MDBottomNavigationItem:
+                    name: "search"
+                    title: "Пошук"
+                    icon: "magnify"
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        padding: dp(10)
+                        spacing: dp(10)
+
+                        MDBoxLayout:
+                            size_hint_y: None
+                            height: dp(52)
+                            spacing: dp(8)
+                            MDTextField:
+                                id: search_field
+                                hint_text: "Пошук треків, альбомів, виконавців…"
+                                mode: "round"
+                                size_hint_x: 1
+                                fill_color_normal: 0.13, 0.15, 0.22, 1
+                                text_color_focus: 0.45, 0.70, 1.0, 1
+                                hint_text_color_focus: 0.45, 0.70, 1.0, 1
+                                multiline: False
+                            MDIconButton:
+                                id: search_go
+                                icon: "magnify"
+                                theme_icon_color: "Custom"
+                                icon_color: 0.35, 0.65, 1.0, 1
+                                pos_hint: {"center_y": 0.5}
+
+                        MDBoxLayout:
+                            id: search_modes
+                            size_hint_y: None
+                            height: dp(38)
+                            spacing: dp(6)
+
+                        FloatLayout:
+                            MDScrollView:
+                                MDList:
+                                    id: search_list
+                                    padding: dp(4)
+                                    spacing: dp(6)
+                            MDSpinner:
+                                id: search_spin
+                                size_hint: None, None
+                                size: dp(42), dp(42)
+                                pos_hint: {"center_x": 0.5, "center_y": 0.45}
+                                active: False
+                                opacity: 0
+                            MDLabel:
+                                id: search_load
+                                text: ""
+                                halign: "center"
+                                theme_text_color: "Custom"
+                                text_color: 0.45, 0.70, 1.0, 1
+                                font_size: "14sp"
+                                size_hint_y: None
+                                height: dp(24)
+                                pos_hint: {"center_x": 0.5, "center_y": 0.58}
+
+                MDBottomNavigationItem:
+                    name: "library"
+                    title: "Бібліотека"
+                    icon: "folder-music"
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        padding: dp(10)
+                        spacing: dp(8)
+
+                        MDBoxLayout:
+                            size_hint_y: None
+                            height: dp(40)
+                            MDLabel:
+                                text: "Моя музика та завантаження"
+                                font_size: "16sp"
+                                bold: True
+                                theme_text_color: "Custom"
+                                text_color: 0.85, 0.90, 1.0, 1
+                            MDIconButton:
+                                id: lib_refresh
+                                icon: "refresh"
+                                theme_icon_color: "Custom"
+                                icon_color: 0.45, 0.70, 1.0, 1
+                                pos_hint: {"center_y": 0.5}
+
+                        FloatLayout:
+                            MDScrollView:
+                                MDList:
+                                    id: library_list
+                                    padding: dp(4)
+                                    spacing: dp(6)
+                            MDSpinner:
+                                id: library_spin
+                                size_hint: None, None
+                                size: dp(42), dp(42)
+                                pos_hint: {"center_x": 0.5, "center_y": 0.45}
+                                active: False
+                                opacity: 0
+                            MDLabel:
+                                id: library_load
+                                text: ""
+                                halign: "center"
+                                theme_text_color: "Custom"
+                                text_color: 0.45, 0.70, 1.0, 1
+                                font_size: "14sp"
+                                size_hint_y: None
+                                height: dp(24)
+                                pos_hint: {"center_x": 0.5, "center_y": 0.58}
+
+            MDCard:
+                id: dl_card
+                orientation: "vertical"
+                size_hint_y: None
+                height: 0
+                opacity: 0
+                md_bg_color: 0.13, 0.15, 0.22, 1
+                elevation: 6
+                radius: [dp(12), dp(12), 0, 0]
+                padding: [dp(12), dp(6)]
+                spacing: dp(4)
+
+                MDBoxLayout:
+                    size_hint_y: None
+                    height: dp(24)
+                    MDLabel:
+                        text: "Завантаження"
+                        font_size: "11sp"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: 0.65, 0.70, 0.80, 1
+                        valign: "middle"
+                    MDIconButton:
+                        id: dl_clear
+                        icon: "close"
+                        theme_icon_color: "Custom"
+                        icon_color: 0.65, 0.70, 0.80, 1
+                        icon_size: "14sp"
+                        size: [dp(26), dp(26)]
+                        pos_hint: {"center_y": 0.5}
+
+                ScrollView:
+                    MDList:
+                        id: dl_list
+                        padding: 0
+                        spacing: dp(4)
+
+            MDCard:
+                orientation: "vertical"
+                size_hint_y: None
+                height: dp(76)
+                md_bg_color: 0.13, 0.15, 0.22, 1
+                elevation: 12
+                radius: [dp(16), dp(16), 0, 0]
+                padding: [dp(12), dp(6), dp(12), dp(8)]
+                spacing: dp(4)
+
+                MDBoxLayout:
+                    size_hint_y: None
+                    height: dp(18)
+                    spacing: dp(8)
+
+                    Slider:
+                        id: seek
+                        min: 0
+                        max: 100
+                        value: 0
+                        size_hint_x: 1
+                        cursor_size: (dp(14), dp(14))
+                        value_track: True
+                        value_track_color: [0.35, 0.65, 1.0, 1]
+                        pos_hint: {"center_y": 0.5}
+
+                    MDLabel:
+                        id: time_lbl
+                        text: "0:00 / 0:00"
+                        font_size: "10sp"
+                        theme_text_color: "Custom"
+                        text_color: 0.65, 0.70, 0.80, 1
+                        size_hint_x: None
+                        width: dp(66)
+                        valign: "middle"
+
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    height: dp(46)
+                    spacing: dp(10)
+
+                    AsyncImage:
+                        id: player_art
+                        source: ""
+                        size_hint: None, None
+                        size: dp(42), dp(42)
+                        pos_hint: {"center_y": 0.5}
+                        mipmap: True
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        spacing: 0
+                        pos_hint: {"center_y": 0.5}
+
+                        MDLabel:
+                            id: player_title
+                            text: "Нічого не лунає"
+                            font_size: "13sp"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 0.95, 0.95, 0.98, 1
+                            shorten: True
+                            shorten_from: "right"
+
+                        MDLabel:
+                            id: player_meta
+                            text: ""
+                            font_size: "10sp"
+                            italic: True
+                            theme_text_color: "Custom"
+                            text_color: 0.45, 0.70, 1.0, 1
+                            shorten: True
+
+                    MDBoxLayout:
+                        size_hint_x: None
+                        width: dp(84)
+                        spacing: dp(4)
+                        pos_hint: {"center_y": 0.5}
+
+                        MDIconButton:
+                            id: play_pause_btn
+                            icon: "play"
+                            theme_icon_color: "Custom"
+                            icon_color: 1, 1, 1, 1
+                            icon_size: "22sp"
+                            size: [dp(40), dp(40)]
+                            pos_hint: {"center_y": 0.5}
+                            md_bg_color: 0.35, 0.65, 1.0, 1
+
+                        MDIconButton:
+                            id: vol_btn
+                            icon: "volume-high"
+                            theme_icon_color: "Custom"
+                            icon_color: 0.45, 0.70, 1.0, 1
+                            icon_size: "18sp"
+                            size: [dp(34), dp(34)]
+                            pos_hint: {"center_y": 0.5}
+                            md_bg_color: 0, 0, 0, 0
+
+    MDScreen:
+        name: "artist"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            md_bg_color: 0.08, 0.09, 0.13, 1
+
+            MDTopAppBar:
+                id: artist_bar
+                title: ""
+                elevation: 4
+                md_bg_color: 0.12, 0.14, 0.20, 1
+                specific_text_color: 0.95, 0.97, 1.0, 1
+                size_hint_y: None
+                height: dp(52)
+                left_action_items: [["arrow-left", lambda x: app.go_back()]]
+
+            MDBoxLayout:
+                size_hint_y: None
+                height: dp(40)
+                padding: [dp(12), 0]
+                spacing: dp(10)
+                MDLabel:
+                    text: "Популярні треки"
+                    font_size: "14sp"
+                    bold: True
+                    theme_text_color: "Custom"
+                    text_color: 0.65, 0.70, 0.80, 1
+                    valign: "middle"
+                MDFlatButton:
+                    id: related_btn
+                    text: "Схожі"
+                    theme_text_color: "Custom"
+                    text_color: 0.35, 0.65, 1.0, 1
+
+            FloatLayout:
+                MDScrollView:
+                    MDList:
+                        id: artist_list
+                        padding: dp(8)
+                        spacing: dp(6)
+                MDSpinner:
+                    id: artist_spin
+                    size_hint: None, None
+                    size: dp(42), dp(42)
+                    pos_hint: {"center_x": 0.5, "center_y": 0.45}
+                    active: False
+                    opacity: 0
+                MDLabel:
+                    id: artist_load
+                    text: ""
+                    halign: "center"
+                    theme_text_color: "Custom"
+                    text_color: 0.45, 0.70, 1.0, 1
+                    font_size: "14sp"
+                    size_hint_y: None
+                    height: dp(24)
+                    pos_hint: {"center_x": 0.5, "center_y": 0.58}

@@ -1,0 +1,9 @@
+kivy>=2.3.0
+kivymd>=1.1.1
+ffpyplayer
+requests
+mutagen
+deezer-python
+python-dotenv
+yt-dlp
+Pillow ; sys_platform != "android"

@@ -1,0 +1,9 @@
+customtkinter
+Pillow
+requests
+pygame
+mutagen
+deezer-python
+python-dotenv
+yt-dlp
+pyradios

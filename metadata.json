@@ -1,0 +1,6 @@
+{
+  "name": "FastMusic",
+  "description": "Пречудовий вебовий музичний плеєр з інтеграцією Deezer, Radio Browser та локальної аудіобібліотеки.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
