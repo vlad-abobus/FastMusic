@@ -17,7 +17,8 @@ hiddenimports += collect_submodules("customtkinter")
 hiddenimports += ["PIL", "PIL._tkinter_finder"]
 
 # ffmpeg — кладём рядом с exe для конвертации в mp3
-_ffmpeg_src = os.path.join(os.getcwd(), "ffmpeg.exe")
+_SPEC_DIR = SPECPATH
+_ffmpeg_src = os.path.join(_SPEC_DIR, "ffmpeg.exe")
 if os.path.isfile(_ffmpeg_src):
     binaries += [(_ffmpeg_src, ".")]
 
@@ -36,8 +37,8 @@ for mod in ["logic", "logger", "radio_client", "radio_player", "deezer_client"]:
 
 
 a = Analysis(
-    ['main.py'],
-    pathex=[],
+    [os.path.join(_SPEC_DIR, "main.py")],
+    pathex=[_SPEC_DIR],
     binaries=binaries,
     datas=datas,
     hiddenimports=hiddenimports,
@@ -78,5 +79,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=['favicon.ico'],
+    icon=[os.path.join(_SPEC_DIR, "favicon.ico")],
 )

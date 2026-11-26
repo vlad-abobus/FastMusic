@@ -29,7 +29,7 @@ def _get_base_dir():
             pass
     if getattr(sys, "frozen", False):
         return os.path.dirname(sys.executable)
-    return os.getcwd()
+    return os.path.dirname(os.path.abspath(__file__))
 
 
 _BASE_DIR = _get_base_dir()

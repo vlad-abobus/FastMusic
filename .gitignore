@@ -1,39 +1,48 @@
-# ─── Node / веб-часть ───
-node_modules/
-dist/
-build/
-coverage/
-.vite/
-*.tsbuildinfo
-
 # ─── Python ───
-.venv/
-venv/
 __pycache__/
 *.py[cod]
+*$py.class
+.venv/
+venv/
+env/
 *.egg-info/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
 
-# ─── Сборки PyInstaller / бинарники ───
-*.exe
-*.dll
-*.pyd
-*.spec.bak
-ffmpeg.exe
-
-# ─── Данные приложения ───
-data/
-downloads/
-logs/
+# ─── Local data and secrets ───
+.env
+.env.*
+!.env.example
+.cache
 .cache/
 *.db
 *.db-journal
 *.sqlite3
+downloads/
+logs/
+data/
 *.log
 
-# ─── Архивы и временный мусор ───
+# ─── Desktop builds (PyInstaller) ───
+build/
+dist/
+*.spec.bak
+ffmpeg.exe
+*.exe
+*.dll
+*.pyd
+
+# ─── Android builds (Buildozer) ───
+android/.buildozer/
+android/bin/
+*.apk
+*.aab
+*.idsig
+*.keystore
+*.jks
+
+# ─── Archives and temporary files ───
 *.rar
 *.7z
 *.zip
@@ -46,12 +55,7 @@ Thumbs.db
 Desktop.ini
 .DS_Store
 
-# ─── Окружение / секреты ───
-.env
-.env.*
-!.env.example
-
-# ─── IDE / редакторы ───
+# ─── IDEs and editors ───
 .idea/
 .vscode/
 *.swp

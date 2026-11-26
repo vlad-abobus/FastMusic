@@ -5,7 +5,9 @@ package.name = fastmusic
 package.domain = org.fastmusic
 
 source.dir = .
-source.include_exts = py,png,jpg,kv,atlas,txt,db
+source.include_exts = py,png,jpg,kv,atlas,txt
+source.exclude_dirs = .buildozer,bin,__pycache__,logs,downloads
+source.exclude_patterns = *.db,*.log,*.pyc,.env
 
 version = 1.0.0
 
@@ -24,6 +26,7 @@ android.archs = arm64-v8a
 android.accept_sdk_license = True
 
 p4a.branch = develop
+p4a.local_recipes = ./recipes
 
 log_level = 2
 
