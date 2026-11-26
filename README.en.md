@@ -1,6 +1,9 @@
-# FastMusic
+<p align="center">
+  <sub>Language / Язык</sub><br>
+  <a href="README.md">🇷🇺 Русский</a> · <b>🇬🇧 English</b>
+</p>
 
-[Русский](README.md) | **English**
+# FastMusic
 
 FastMusic is a music player that searches tracks through Deezer, downloads them into
 a local library, and supports charts and internet radio.

@@ -1,6 +1,9 @@
-# FastMusic
+<p align="center">
+  <sub>Язык / Language</sub><br>
+  <b>🇷🇺 Русский</b> · <a href="README.en.md">🇬🇧 English</a>
+</p>
 
-**Русский** | [English](README.en.md)
+# FastMusic
 
 FastMusic — музыкальный плеер с поиском треков через Deezer, скачиванием в локальную
 библиотеку, чартами и интернет-радио.
